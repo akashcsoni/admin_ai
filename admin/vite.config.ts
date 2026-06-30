@@ -7,6 +7,7 @@ export default defineConfig({
   root: path.resolve(__dirname),
   publicDir: path.resolve(__dirname, '../public'),
   server: {
+    host: '127.0.0.1',
     port: 5174,
     strictPort: true,
     proxy: {

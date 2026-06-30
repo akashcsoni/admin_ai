@@ -160,7 +160,24 @@ export default function AdminSupportTicketPage() {
                     <strong>{item.authorName ?? (item.authorType === 'admin' ? 'Support' : 'Member')}</strong>
                     <time dateTime={item.createdAt}>{formatDateTime(item.createdAt)}</time>
                   </header>
-                  <p>{item.message}</p>
+                  <p>{item.message === '(Attachment)' ? '' : item.message}</p>
+                  {item.attachments.length > 0 ? (
+                    <ul className="admin-support-message-attachments">
+                      {item.attachments.map((attachment) => (
+                        <li key={attachment.id}>
+                          <button
+                            type="button"
+                            className="admin-support-message-attachment"
+                            onClick={() =>
+                              void adminApi.downloadSupportAttachment(token!, ticketId, attachment)
+                            }
+                          >
+                            {attachment.fileName}
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
                 </article>
               ))}
             </div>

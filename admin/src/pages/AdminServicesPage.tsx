@@ -15,7 +15,7 @@ import AdminContentCard from '../components/AdminContentCard'
 import { useAdminAuth } from '../context/AdminAuthContext'
 import { adminApi, ApiError, type ServiceCreditSetting } from '../lib/api'
 import { adminHasPermission } from '../lib/adminPermissions'
-import { services } from '../../../src/data/services'
+import { services } from '../data/services'
 
 const serviceIcons: Record<string, IconDefinition> = {
   blog: faPenToSquare,

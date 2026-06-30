@@ -6,6 +6,8 @@ import AdminSupportPage from './pages/AdminSupportPage'
 import AdminSupportTicketPage from './pages/AdminSupportTicketPage'
 import AdminBlogEditPage from './pages/AdminBlogEditPage'
 import AdminBlogPage from './pages/AdminBlogPage'
+import AdminSiteSeoEditPage from './pages/AdminSiteSeoEditPage'
+import AdminSiteSeoPage from './pages/AdminSiteSeoPage'
 import AdminBillingPage from './pages/AdminBillingPage'
 import AdminCreditsPage from './pages/AdminCreditsPage'
 import AdminDashboardPage from './pages/AdminDashboardPage'
@@ -90,6 +92,22 @@ export default function App() {
               element={
                 <AdminPermissionRoute permission="cms.manage">
                   <AdminBlogEditPage />
+                </AdminPermissionRoute>
+              }
+            />
+            <Route
+              path="site-seo"
+              element={
+                <AdminPermissionRoute permission="cms.view">
+                  <AdminSiteSeoPage />
+                </AdminPermissionRoute>
+              }
+            />
+            <Route
+              path="site-seo/:pageKey"
+              element={
+                <AdminPermissionRoute permission="cms.manage">
+                  <AdminSiteSeoEditPage />
                 </AdminPermissionRoute>
               }
             />

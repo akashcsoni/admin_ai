@@ -12,6 +12,7 @@ import {
   faHeadset,
   faNewspaper,
   faPenToSquare,
+  faSitemap,
   faUserShield,
   faUsers,
 } from '@fortawesome/free-solid-svg-icons'
@@ -80,6 +81,14 @@ export const adminNavItems: AdminNavItem[] = [
     path: '/blog-cms',
     icon: faNewspaper,
     description: 'Publish SEO articles on the public website',
+    permission: 'cms.view',
+  },
+  {
+    id: 'site-seo',
+    label: 'Page SEO',
+    path: '/site-seo',
+    icon: faSitemap,
+    description: 'Manage meta tags and JSON-LD schema for public pages',
     permission: 'cms.view',
   },
   {

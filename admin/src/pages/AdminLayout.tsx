@@ -60,8 +60,8 @@ export default function AdminLayout() {
         aria-label="Admin navigation"
       >
         <div className="admin-sidebar-top">
-          <button type="button" className="admin-sidebar-project" aria-label="Content AI admin">
-            <span className="admin-sidebar-project-label">Content AI</span>
+          <button type="button" className="admin-sidebar-project" aria-label="WBBYWRITER admin">
+            <img src="/logo.png" alt="WBBYWRITER" className="admin-sidebar-logo" />
             {!collapsed && <FontAwesomeIcon icon={faChevronDown} className="admin-sidebar-project-chevron" />}
           </button>
           <button

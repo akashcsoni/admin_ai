@@ -30,7 +30,7 @@ export default function AdminSignInPage() {
   return (
     <div className="admin-auth-page">
       <div className="admin-auth-card">
-        <p className="admin-page-eyebrow">Content AI</p>
+        <p className="admin-page-eyebrow">WBBYWRITER</p>
         <h1>Admin sign in</h1>
         <p>Use your admin portal account. This is separate from member accounts.</p>
 

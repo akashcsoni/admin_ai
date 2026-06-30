@@ -4,15 +4,15 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --config admin/vite.config.ts",
     "dev:admin": "vite --config admin/vite.config.ts",
     "dev:server": "npm run dev --prefix server",
     "dev:all": "npm run dev & npm run dev:admin & npm run dev:server",
     "db:up": "docker compose up -d",
     "db:migrate": "npm run db:migrate --prefix server",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build --config admin/vite.config.ts",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview --config admin/vite.config.ts"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.3.0",

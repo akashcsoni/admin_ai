@@ -1,6 +1,20 @@
-@import '../../src/index.css';
 @import './styles/admin.css';
 @import './styles/admin-theme.css';
+
+:root {
+  --sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font: 16px/1.6 var(--sans);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;

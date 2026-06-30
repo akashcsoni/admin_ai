@@ -84,6 +84,32 @@ export type CmsBlogPost = CmsBlogPostSummary & {
   content: string
 }
 
+import type { SitePageBlock } from './sitePageBlocks'
+
+export type { SitePageBlock, SitePageBlockType } from './sitePageBlocks'
+
+export type SitePageSeoRecord = {
+  id: string
+  pageKey: string
+  pageName: string
+  pageCategory: string
+  path: string
+  metaTitle: string
+  metaDescription: string
+  keywords: string[]
+  h1: string
+  ogType: 'website' | 'article'
+  ogImage: string
+  noindex: boolean
+  schemaTypes: string[]
+  schemaJson: Record<string, unknown>[] | null
+  contentBlocks: SitePageBlock[] | null
+  contentActive: boolean
+  isActive: boolean
+  createdAt: string
+  updatedAt: string
+}
+
 export type ServiceCreditSetting = {
   serviceId: string
   title: string
@@ -96,6 +122,16 @@ export type SupportTicketCategory = 'billing' | 'credits' | 'technical' | 'accou
 export type SupportTicketStatus = 'open' | 'in_progress' | 'resolved' | 'closed'
 export type SupportTicketPriority = 'low' | 'normal' | 'high'
 
+export type SupportTicketAttachment = {
+  id: string
+  messageId: string
+  ticketId: string
+  fileName: string
+  mimeType: string
+  fileSize: number
+  createdAt: string
+}
+
 export type SupportTicketMessage = {
   id: string
   ticketId: string
@@ -104,6 +140,7 @@ export type SupportTicketMessage = {
   authorAdminId: string | null
   authorName: string | null
   message: string
+  attachments: SupportTicketAttachment[]
   createdAt: string
 }
 
@@ -664,6 +701,82 @@ export const adminApi = {
     apiRequest<{ ticket: SupportTicketDetail; message: string }>(
       `/admin/support/tickets/${ticketId}`,
       { method: 'PATCH', body: JSON.stringify(payload) },
+      token,
+    ),
+
+  downloadSupportAttachment: async (
+    token: string,
+    ticketId: string,
+    attachment: SupportTicketAttachment,
+  ) => {
+    const response = await fetch(
+      `${API_BASE}/admin/support/tickets/${ticketId}/attachments/${attachment.id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      },
+    )
+
+    if (!response.ok) {
+      const data = await response.json().catch(() => ({}))
+      throw new ApiError(data.message ?? 'Failed to download attachment', response.status)
+    }
+
+    const blob = await response.blob()
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+    link.download = attachment.fileName
+    link.click()
+    URL.revokeObjectURL(url)
+  },
+
+  listSiteSeoPages: (token: string) =>
+    apiRequest<{ pages: SitePageSeoRecord[] }>('/admin/site-seo/pages', { method: 'GET' }, token),
+
+  getSiteSeoPage: (token: string, pageKey: string) =>
+    apiRequest<{ page: SitePageSeoRecord }>(
+      `/admin/site-seo/pages/${encodeURIComponent(pageKey)}`,
+      { method: 'GET' },
+      token,
+    ),
+
+  updateSiteSeoPage: (
+    token: string,
+    pageKey: string,
+    payload: {
+      metaTitle?: string
+      metaDescription?: string
+      keywords?: string[]
+      h1?: string
+      ogType?: 'website' | 'article'
+      ogImage?: string
+      noindex?: boolean
+      schemaTypes?: string[]
+      schemaJson?: Record<string, unknown>[] | null
+      contentBlocks?: SitePageBlock[] | null
+      contentActive?: boolean
+      isActive?: boolean
+    },
+  ) =>
+    apiRequest<{ page: SitePageSeoRecord; message: string }>(
+      `/admin/site-seo/pages/${encodeURIComponent(pageKey)}`,
+      { method: 'PATCH', body: JSON.stringify(payload) },
+      token,
+    ),
+
+  resetSiteSeoPage: (token: string, pageKey: string) =>
+    apiRequest<{ page: SitePageSeoRecord; message: string }>(
+      `/admin/site-seo/pages/${encodeURIComponent(pageKey)}/reset`,
+      { method: 'POST' },
+      token,
+    ),
+
+  resetSiteSeoContent: (token: string, pageKey: string) =>
+    apiRequest<{ page: SitePageSeoRecord; message: string }>(
+      `/admin/site-seo/pages/${encodeURIComponent(pageKey)}/reset-content`,
+      { method: 'POST' },
       token,
     ),
 }
