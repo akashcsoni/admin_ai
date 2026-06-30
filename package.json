@@ -1,0 +1,35 @@
+{
+  "name": "content-ai",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:admin": "vite --config admin/vite.config.ts",
+    "dev:server": "npm run dev --prefix server",
+    "dev:all": "npm run dev & npm run dev:admin & npm run dev:server",
+    "db:up": "docker compose up -d",
+    "db:migrate": "npm run db:migrate --prefix server",
+    "build": "tsc -b && vite build",
+    "lint": "oxlint",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^7.3.0",
+    "@fortawesome/free-brands-svg-icons": "^7.3.0",
+    "@fortawesome/free-solid-svg-icons": "^7.3.0",
+    "@fortawesome/react-fontawesome": "^3.3.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-router-dom": "^7.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.2",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^4.5.2",
+    "oxlint": "^1.69.0",
+    "typescript": "~5.8.3",
+    "vite": "^6.3.5"
+  }
+}
