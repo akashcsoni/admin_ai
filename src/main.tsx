@@ -1,16 +1,13 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { AuthProvider } from './context/AuthContext'
-import { ServiceCreditsProvider } from './context/ServiceCreditsContext'
+import { AdminAuthProvider } from './context/AdminAuthContext'
 import './index.css'
-import App from './App.tsx'
+import App from './App'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <AuthProvider>
-      <ServiceCreditsProvider>
-        <App />
-      </ServiceCreditsProvider>
-    </AuthProvider>
+    <AdminAuthProvider>
+      <App />
+    </AdminAuthProvider>
   </StrictMode>,
 )

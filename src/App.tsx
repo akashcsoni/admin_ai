@@ -1,65 +1,154 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import { GuestRoute, ProtectedRoute } from './components/ProtectedRoute'
-import Layout from './components/Layout'
-import ScrollToTop from './components/ScrollToTop'
-import AboutPage from './pages/AboutPage'
-import BlogPage from './pages/BlogPage'
-import BlogPostPage from './pages/BlogPostPage'
-import AccountBillingPage from './pages/AccountBillingPage'
-import AccountInvoicePage from './pages/AccountInvoicePage'
-import AccountPage from './pages/AccountPage'
-import AccountUsagePage from './pages/AccountUsagePage'
-import AccountSettingsPage from './pages/AccountSettingsPage'
-import AccountSupportPage from './pages/AccountSupportPage'
-import AccountSupportTicketPage from './pages/AccountSupportTicketPage'
-import AccountServicePage from './pages/AccountServicePage'
-import ContactPage from './pages/ContactPage'
-import FAQPage from './pages/FAQPage'
-import HomePage from './pages/HomePage'
-import PricingPage from './pages/PricingPage'
-import ServicesPage from './pages/ServicesPage'
-import SignInPage from './pages/SignInPage'
-import SignUpPage from './pages/SignUpPage'
-import StaticContentPage from './pages/StaticContentPage'
-import StatusPage from './pages/StatusPage'
+import { AdminGuestRoute, AdminProtectedRoute } from './components/AdminProtectedRoute'
+import AdminActivityPage from './pages/AdminActivityPage'
+import AdminAutoBlogPage from './pages/AdminAutoBlogPage'
+import AdminSupportPage from './pages/AdminSupportPage'
+import AdminSupportTicketPage from './pages/AdminSupportTicketPage'
+import AdminBlogEditPage from './pages/AdminBlogEditPage'
+import AdminBlogPage from './pages/AdminBlogPage'
+import AdminBillingPage from './pages/AdminBillingPage'
+import AdminCreditsPage from './pages/AdminCreditsPage'
+import AdminDashboardPage from './pages/AdminDashboardPage'
+import AdminInvoiceSettingsPage from './pages/AdminInvoiceSettingsPage'
+import AdminLayout from './pages/AdminLayout'
+import AdminPaymentSettingsPage from './pages/AdminPaymentSettingsPage'
+import AdminServicesPage from './pages/AdminServicesPage'
+import AdminStaffPage from './pages/AdminStaffPage'
+import AdminSignInPage from './pages/AdminSignInPage'
+import AdminPermissionRoute from './components/AdminPermissionRoute'
+import AdminUserDetailPage from './pages/AdminUserDetailPage'
+import AdminUsersPage from './pages/AdminUsersPage'
 
 export default function App() {
   return (
     <BrowserRouter>
-      <ScrollToTop />
       <Routes>
-        <Route element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path="services" element={<ServicesPage />} />
-          <Route path="about" element={<AboutPage />} />
-          <Route path="pricing" element={<PricingPage />} />
-          <Route path="contact" element={<ContactPage />} />
-          <Route path="faq" element={<FAQPage />} />
-          <Route path="careers" element={<StaticContentPage pageKey="careers" />} />
-          <Route path="partnerships" element={<StaticContentPage pageKey="partnerships" />} />
-          <Route path="guides" element={<StaticContentPage pageKey="guides" />} />
-          <Route path="status" element={<StatusPage />} />
-          <Route path="privacy" element={<StaticContentPage pageKey="privacy" />} />
-          <Route path="terms" element={<StaticContentPage pageKey="terms" />} />
-          <Route path="cookies" element={<StaticContentPage pageKey="cookies" />} />
-          <Route path="security" element={<StaticContentPage pageKey="security" />} />
-          <Route path="blog" element={<BlogPage />} />
-          <Route path="blog/:slug" element={<BlogPostPage />} />
+        <Route element={<AdminGuestRoute />}>
+          <Route path="signin" element={<AdminSignInPage />} />
+        </Route>
 
-          <Route element={<GuestRoute />}>
-            <Route path="signin" element={<SignInPage />} />
-            <Route path="signup" element={<SignUpPage />} />
-          </Route>
-
-          <Route element={<ProtectedRoute />}>
-            <Route path="account" element={<AccountPage />} />
-            <Route path="account/billing" element={<AccountBillingPage />} />
-            <Route path="account/billing/invoice/:purchaseId" element={<AccountInvoicePage />} />
-            <Route path="account/usage" element={<AccountUsagePage />} />
-            <Route path="account/settings" element={<AccountSettingsPage />} />
-            <Route path="account/support" element={<AccountSupportPage />} />
-            <Route path="account/support/:ticketId" element={<AccountSupportTicketPage />} />
-            <Route path="account/services/:serviceId" element={<AccountServicePage />} />
+        <Route element={<AdminProtectedRoute />}>
+          <Route element={<AdminLayout />}>
+            <Route
+              index
+              element={
+                <AdminPermissionRoute permission="stats.view">
+                  <AdminDashboardPage />
+                </AdminPermissionRoute>
+              }
+            />
+            <Route
+              path="users"
+              element={
+                <AdminPermissionRoute permission="members.view">
+                  <AdminUsersPage />
+                </AdminPermissionRoute>
+              }
+            />
+            <Route
+              path="users/:userId"
+              element={
+                <AdminPermissionRoute permission="members.view">
+                  <AdminUserDetailPage />
+                </AdminPermissionRoute>
+              }
+            />
+            <Route
+              path="staff"
+              element={
+                <AdminPermissionRoute permission="staff.manage">
+                  <AdminStaffPage />
+                </AdminPermissionRoute>
+              }
+            />
+            <Route
+              path="support"
+              element={
+                <AdminPermissionRoute permission="support.view">
+                  <AdminSupportPage />
+                </AdminPermissionRoute>
+              }
+            />
+            <Route
+              path="support/:ticketId"
+              element={
+                <AdminPermissionRoute permission="support.view">
+                  <AdminSupportTicketPage />
+                </AdminPermissionRoute>
+              }
+            />
+            <Route
+              path="blog-cms"
+              element={
+                <AdminPermissionRoute permission="cms.view">
+                  <AdminBlogPage />
+                </AdminPermissionRoute>
+              }
+            />
+            <Route
+              path="blog-cms/:postId"
+              element={
+                <AdminPermissionRoute permission="cms.manage">
+                  <AdminBlogEditPage />
+                </AdminPermissionRoute>
+              }
+            />
+            <Route
+              path="billing"
+              element={
+                <AdminPermissionRoute permission="credits.view">
+                  <AdminBillingPage />
+                </AdminPermissionRoute>
+              }
+            />
+            <Route
+              path="credits"
+              element={
+                <AdminPermissionRoute permission="credits.view">
+                  <AdminCreditsPage />
+                </AdminPermissionRoute>
+              }
+            />
+            <Route
+              path="auto-blog"
+              element={
+                <AdminPermissionRoute permission="autoblog.view">
+                  <AdminAutoBlogPage />
+                </AdminPermissionRoute>
+              }
+            />
+            <Route
+              path="activity"
+              element={
+                <AdminPermissionRoute permission="activity.view">
+                  <AdminActivityPage />
+                </AdminPermissionRoute>
+              }
+            />
+            <Route
+              path="services"
+              element={
+                <AdminPermissionRoute permission="services.view">
+                  <AdminServicesPage />
+                </AdminPermissionRoute>
+              }
+            />
+            <Route
+              path="settings/invoice"
+              element={
+                <AdminPermissionRoute permission="payment.manage">
+                  <AdminInvoiceSettingsPage />
+                </AdminPermissionRoute>
+              }
+            />
+            <Route
+              path="settings/payment"
+              element={
+                <AdminPermissionRoute permission="payment.manage">
+                  <AdminPaymentSettingsPage />
+                </AdminPermissionRoute>
+              }
+            />
           </Route>
         </Route>
       </Routes>
