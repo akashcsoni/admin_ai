@@ -19,6 +19,15 @@ admin/dist
 *.local
 .env
 server/.env
+.env.example
+.env.production
+.env.development
+.env.test
+.env.staging
+.env.local
+.env.development.local
+.env.test.local
+.env.staging.local
 
 # Generated uploads
 server/uploads
