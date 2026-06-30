@@ -1,0 +1,613 @@
+.account-support-page .account-dashboard {
+  padding-bottom: 3rem;
+}
+
+.account-support-toolbar-note {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--text);
+}
+
+.account-support-stats {
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 1100px) {
+  .account-support-stats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.account-support-layout,
+.account-support-detail-layout {
+  align-items: start;
+}
+
+.account-support-count-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-soft);
+  font-size: 0.82rem;
+  color: var(--text);
+}
+
+.account-support-count-chip strong {
+  color: var(--text-h);
+}
+
+.account-support-tickets-panel,
+.account-support-create-panel,
+.account-support-conversation-panel,
+.account-support-detail-panel {
+  margin-bottom: 0;
+}
+
+.account-support-conversation-panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 32rem;
+  padding: 0;
+  overflow: hidden;
+}
+
+.account-support-conversation-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.15rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-soft);
+}
+
+.account-support-conversation-head-copy h2 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--text-h);
+}
+
+.account-support-conversation-head-copy p {
+  margin: 0.35rem 0 0;
+  max-width: 36rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.account-support-conversation-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.55rem;
+}
+
+.account-support-chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  min-height: 22rem;
+  max-height: 34rem;
+  overflow-y: auto;
+  padding: 1.15rem 1.25rem;
+  background: var(--bg);
+  scroll-behavior: smooth;
+}
+
+.account-support-chat-empty {
+  display: grid;
+  place-content: center;
+  gap: 0.35rem;
+  min-height: 16rem;
+  text-align: center;
+}
+
+.account-support-chat-empty p {
+  margin: 0;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.account-support-chat-empty span {
+  font-size: 0.88rem;
+  color: var(--text);
+}
+
+.account-support-chat-day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.15rem 0;
+}
+
+.account-support-chat-day span {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.28rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-soft);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.account-support-chat-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.65rem;
+  max-width: 100%;
+}
+
+.account-support-chat-row--admin {
+  justify-content: flex-start;
+}
+
+.account-support-chat-row--user {
+  justify-content: flex-end;
+}
+
+.account-support-chat-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-soft);
+  color: var(--text-h);
+  font-size: 0.78rem;
+}
+
+.account-support-chat-avatar--user {
+  border-color: var(--border);
+  background: var(--bg-soft);
+  color: var(--text-h);
+}
+
+.account-support-chat-bubble {
+  max-width: min(100%, 34rem);
+  padding: 0.85rem 0.95rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--bg-soft);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.account-support-chat-row--admin .account-support-chat-bubble {
+  border-bottom-left-radius: 0.35rem;
+  border-color: var(--border);
+  background: var(--bg-soft);
+}
+
+.account-support-chat-row--user .account-support-chat-bubble {
+  border-bottom-right-radius: 0.35rem;
+  border-color: var(--border);
+  background: var(--bg);
+}
+
+.account-support-chat-bubble-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.45rem;
+}
+
+.account-support-chat-bubble-head strong {
+  font-size: 0.84rem;
+  color: var(--text-h);
+}
+
+.account-support-chat-bubble-head time {
+  font-size: 0.72rem;
+  color: var(--text);
+}
+
+.account-support-chat-bubble p {
+  margin: 0;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--text-h);
+}
+
+.account-support-composer {
+  display: grid;
+  gap: 0.85rem;
+  padding: 1rem 1.25rem 1.15rem;
+  border-top: 1px solid var(--border);
+  background: var(--bg-soft);
+}
+
+.account-support-composer--closed {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+}
+
+.account-support-composer--closed p {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--text);
+}
+
+.account-support-composer-field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.account-support-composer-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.account-support-composer-input {
+  min-height: 5.5rem;
+}
+
+.account-support-composer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.account-support-composer-hint {
+  margin: 0;
+  max-width: 28rem;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--text);
+}
+
+.account-support-composer-actions .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.account-support-stat-text,
+.account-support-stat-date {
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  text-transform: capitalize;
+}
+
+.account-support-sidebar .account-panel + .account-panel {
+  margin-top: 1rem;
+}
+
+.account-support-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.account-support-form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.account-support-field {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.account-support-field span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.account-support-input {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 0.65rem;
+  background: var(--bg);
+  color: var(--text-h);
+  font: inherit;
+}
+
+.account-support-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+.account-support-textarea {
+  resize: vertical;
+  min-height: 7rem;
+  line-height: 1.55;
+}
+
+.account-support-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.account-support-empty {
+  display: grid;
+  justify-items: center;
+  gap: 0.65rem;
+  padding: 2.5rem 1rem;
+  text-align: center;
+}
+
+.account-support-empty--page {
+  padding: 3rem 1rem;
+}
+
+.account-support-empty-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1rem;
+  border: 1px solid var(--accent-border);
+  background: var(--accent-bg);
+  color: var(--accent);
+  font-size: 1.15rem;
+}
+
+.account-support-empty p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.account-support-empty span {
+  max-width: 22rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.account-support-ticket-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.account-support-ticket-card {
+  display: grid;
+  gap: 0.55rem;
+  height: 100%;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: var(--bg);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.account-support-ticket-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 30%, var(--border));
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+  transform: translateY(-1px);
+}
+
+.account-support-ticket-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+}
+
+.account-support-ticket-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.65rem;
+  background: var(--accent-bg);
+  color: var(--accent);
+  font-size: 0.82rem;
+}
+
+.account-support-ticket-card strong {
+  font-size: 0.98rem;
+  line-height: 1.35;
+  color: var(--text-h);
+}
+
+.account-support-ticket-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.76rem;
+  color: var(--text);
+}
+
+.account-support-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.18rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-soft);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.account-support-chip--muted {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.account-support-ticket-preview {
+  margin: 0;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--text);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.account-support-ticket-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: auto;
+  padding-top: 0.35rem;
+  font-size: 0.76rem;
+  color: var(--text);
+}
+
+.account-support-ticket-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.account-support-status {
+  flex-shrink: 0;
+  padding: 0.22rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-soft);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.account-support-status--open {
+  border-color: rgba(245, 158, 11, 0.28);
+  background: rgba(245, 158, 11, 0.12);
+  color: #d97706;
+}
+
+.account-support-status--resolved {
+  border-color: rgba(5, 150, 105, 0.25);
+  background: rgba(5, 150, 105, 0.1);
+  color: var(--success);
+}
+
+.account-support-status--closed {
+  border-color: var(--border);
+  background: var(--bg-soft);
+  color: var(--text);
+}
+
+.account-support-stat-status .account-support-status {
+  font-size: 0.95rem;
+  padding: 0.35rem 0.75rem;
+}
+
+.account-support-detail-list {
+  display: grid;
+  gap: 0.85rem;
+  margin: 0;
+}
+
+.account-support-detail-list div {
+  display: grid;
+  gap: 0.25rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.account-support-detail-list div:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.account-support-detail-list dt {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.account-support-detail-list dd {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--text-h);
+  word-break: break-word;
+}
+
+.account-support-sidebar .account-home-quick-link svg {
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 960px) {
+  .account-support-layout,
+  .account-support-detail-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .account-support-layout .account-support-sidebar {
+    order: -1;
+  }
+
+  .account-support-chat {
+    max-height: none;
+  }
+
+  .account-support-ticket-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .account-support-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .account-support-detail-stats .account-home-stats,
+  .account-support-stats.account-home-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .account-support-chat-row {
+    gap: 0.45rem;
+  }
+
+  .account-support-chat-bubble {
+    max-width: calc(100% - 2.5rem);
+  }
+
+  .account-support-composer-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .account-support-composer-actions .btn {
+    justify-content: center;
+  }
+}

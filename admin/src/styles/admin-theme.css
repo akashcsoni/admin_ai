@@ -1,0 +1,211 @@
+/* Match /account neutral SaaS palette (see src/styles/account-theme.css) */
+:root {
+  color-scheme: light;
+  --text: #6e6e80;
+  --text-h: #0d0d0d;
+  --bg: #ffffff;
+  --bg-soft: #f7f7f8;
+  --border: #ececf1;
+  --accent: #0d0d0d;
+  --accent-hover: #333333;
+  --accent-bg: #ececf1;
+  --accent-border: #d9d9e3;
+  --success: #059669;
+  --account-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: light;
+    --text: #6e6e80;
+    --text-h: #0d0d0d;
+    --bg: #ffffff;
+    --bg-soft: #f7f7f8;
+    --border: #ececf1;
+    --accent: #0d0d0d;
+    --accent-hover: #333333;
+    --accent-bg: #ececf1;
+    --accent-border: #d9d9e3;
+    --success: #059669;
+  }
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.admin-shell {
+  background: var(--bg-soft);
+}
+
+.admin-main {
+  background: var(--bg);
+  min-height: 100svh;
+}
+
+.admin-sidebar-link--active {
+  background: #ececf1;
+  color: var(--text-h);
+  border: 0;
+}
+
+.admin-sidebar-link--active svg {
+  opacity: 0.95;
+}
+
+.admin-sidebar-eyebrow {
+  color: var(--text-h);
+}
+
+.admin-page-eyebrow,
+.admin-breadcrumb a {
+  color: var(--text-h);
+}
+
+.admin-breadcrumb a:hover {
+  color: var(--accent-hover);
+}
+
+.admin-sidebar-signout {
+  border-radius: 999px;
+}
+
+.admin-sidebar-signout:hover {
+  background: var(--bg-soft);
+  border-color: #d9d9e3;
+  color: var(--text-h);
+}
+
+.admin-link-btn {
+  border-radius: 999px;
+  color: var(--text-h);
+}
+
+.admin-link-btn:hover {
+  background: var(--bg-soft);
+  border-color: #d9d9e3;
+}
+
+.admin-btn,
+.btn {
+  border-radius: 999px;
+}
+
+.admin-btn {
+  border: 1px solid var(--accent);
+}
+
+.admin-btn--ghost {
+  background: var(--bg);
+  border-color: var(--border);
+  color: var(--text-h);
+}
+
+.admin-btn--ghost:hover:not(:disabled) {
+  background: var(--bg-soft);
+  border-color: #d9d9e3;
+}
+
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+.btn-secondary {
+  background: var(--bg);
+  border-color: var(--border);
+  color: var(--text-h);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-soft);
+  border-color: #d9d9e3;
+}
+
+.admin-input,
+.admin-search-input,
+.admin-textarea {
+  background: var(--bg);
+}
+
+.admin-input:focus,
+.admin-search-input:focus,
+.admin-textarea:focus {
+  outline: none;
+  border-color: #d9d9e3;
+  box-shadow: 0 0 0 3px rgba(13, 13, 13, 0.08);
+}
+
+.admin-avatar {
+  border: 0;
+  background: var(--text-h);
+  box-shadow: none;
+  color: #ffffff;
+}
+
+.admin-avatar--table {
+  border: 1px solid var(--border);
+  background: var(--bg-soft);
+  color: var(--text-h);
+}
+
+.admin-avatar--tone-1,
+.admin-avatar--tone-2,
+.admin-avatar--tone-3,
+.admin-avatar--tone-4,
+.admin-avatar--tone-5,
+.admin-avatar--tone-6 {
+  --admin-avatar-a: var(--border);
+  --admin-avatar-b: var(--border);
+  --admin-avatar-text: #ffffff;
+  --admin-avatar-fill: var(--text-h);
+}
+
+@media (prefers-color-scheme: dark) {
+  .admin-avatar--tone-1,
+  .admin-avatar--tone-2,
+  .admin-avatar--tone-3,
+  .admin-avatar--tone-4,
+  .admin-avatar--tone-5,
+  .admin-avatar--tone-6 {
+    --admin-avatar-fill: var(--bg-soft);
+    --admin-avatar-text: var(--text-h);
+  }
+}
+
+.admin-quick-card--violet,
+.admin-stat-card--violet {
+  background: var(--bg);
+}
+
+.admin-quick-card--violet {
+  background:
+    radial-gradient(circle at top right, rgba(13, 13, 13, 0.04), transparent 58%),
+    var(--bg);
+}
+
+.admin-quick-card--violet .admin-quick-card-icon,
+.admin-stat-card--violet .admin-stat-card-icon {
+  background: var(--accent-bg);
+  border-color: var(--accent-border);
+  color: var(--text-h);
+}
+
+.admin-stat-card--violet {
+  border-top-color: var(--text-h);
+}
+
+.admin-content-card,
+.admin-panel,
+.admin-table-wrap,
+.admin-stat-card,
+.admin-quick-card {
+  box-shadow: var(--account-shadow);
+}
