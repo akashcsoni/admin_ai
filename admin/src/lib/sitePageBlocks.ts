@@ -100,7 +100,7 @@ export function createEmptyBlock(type: SitePageBlockType, pageKey: string, index
         id,
         type,
         methods: [
-          { title: 'Email us', description: 'Best for detailed questions, billing, and account help.', value: 'hello@contentai.example', href: 'mailto:hello@contentai.example', icon: 'email' },
+          { title: 'Email us', description: 'Best for detailed questions, billing, and account help.', value: 'hello@webbywrites.com', href: 'mailto:hello@webbywrites.com', icon: 'email' },
           { title: 'Response time', description: 'We reply to every message within 1–2 business days.', value: 'Mon – Fri, 9am – 6pm EST', icon: 'clock' },
           { title: 'Help center', description: 'Instant answers about credits, API keys, and services.', value: 'Browse FAQ', href: '/faq', icon: 'help' },
         ],

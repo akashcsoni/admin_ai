@@ -3,8 +3,8 @@ export const contactSidebarDefaults = {
     {
       title: 'Email us',
       description: 'Best for detailed questions, billing, and account help.',
-      value: 'hello@contentai.example',
-      href: 'mailto:hello@contentai.example',
+      value: 'hello@webbywrites.com',
+      href: 'mailto:hello@webbywrites.com',
       icon: 'email',
     },
     {

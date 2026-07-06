@@ -109,7 +109,8 @@ export default function AdminBlogPage() {
           <p className="admin-page-eyebrow">Website content</p>
           <h1>Site blog</h1>
           <p className="admin-page-lead">
-            Create and publish SEO-friendly articles for the public website at {appUrl}/blog.
+            21 pillar articles are live on {appUrl}/blog. Use <strong>New post</strong> or edit
+            drafts below to add and publish content for the next 90 days.
           </p>
         </div>
         <div className="admin-page-header-actions">

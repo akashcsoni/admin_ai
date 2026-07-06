@@ -25,6 +25,8 @@ export default function AdminBlogEditPage() {
   const navigate = useNavigate()
   const { token } = useAdminAuth()
   const [form, setForm] = useState(emptyForm)
+  const [updatedAt, setUpdatedAt] = useState<string | null>(null)
+  const [authorName, setAuthorName] = useState<string | null>(null)
   const [loading, setLoading] = useState(!isNew)
   const [saving, setSaving] = useState(false)
   const [deleting, setDeleting] = useState(false)
@@ -50,6 +52,8 @@ export default function AdminBlogEditPage() {
           featuredImage: response.post.featuredImage,
           status: response.post.status,
         })
+        setUpdatedAt(response.post.updatedAt)
+        setAuthorName(response.post.authorName)
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to load blog post')
       } finally {
@@ -87,6 +91,8 @@ export default function AdminBlogEditPage() {
           featuredImage: response.post.featuredImage,
           status: response.post.status,
         })
+        setUpdatedAt(response.post.updatedAt)
+        setAuthorName(response.post.authorName)
       }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to save blog post')
@@ -146,6 +152,25 @@ export default function AdminBlogEditPage() {
           title="Post details"
           description="Title, body, and SEO fields used on the public website."
         >
+          {!isNew ? (
+            <div className="admin-blog-integrity-note">
+              <p>
+                {updatedAt ? (
+                  <>
+                    <strong>Last updated:</strong> {new Date(updatedAt).toLocaleString()}
+                    {' · '}
+                  </>
+                ) : null}
+                <strong>Author on site:</strong>{' '}
+                {authorName?.trim() ? authorName : 'WebbyWrites (organization — no personal byline)'}
+              </p>
+              <p className="admin-blog-integrity-hint">
+                Every save updates <code>dateModified</code> in BlogPosting JSON-LD. Before publishing,
+                verify content is accurate and do not add fabricated author credentials — leave author
+                unset unless a real contributor is credited.
+              </p>
+            </div>
+          ) : null}
           <form className="admin-blog-edit-form" onSubmit={handleSubmit}>
             <div className="admin-form-grid">
               <label className="admin-field admin-field--wide">
